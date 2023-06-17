@@ -37,6 +37,21 @@ class PersonTest {
     }
 
     @Test
+    void sortByFirstNameAndLastname2() {
+        personList.sort(new Comparator<Person>() {
+            @Override
+            public int compare(Person p1, Person p2) {
+                int i = p1.getFirstname().compareTo(p2.getFirstname());
+                return i != 0 ? i : p1.getLastname().compareTo(p2.getLastname());
+            }
+        });
+
+        for (Person e : personList) {
+            System.out.println(e);
+        }
+    }
+
+    @Test
     void groupingListByGender() {
         Map<String, List<Person>> collect = personList.stream()
                 .collect(Collectors.groupingBy(Person::getGender));
