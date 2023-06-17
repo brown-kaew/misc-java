@@ -82,4 +82,13 @@ class PersonTest {
         }
     }
 
+    @Test
+    void filterOnlyPersonOlderThanOrEqual30ByRemove() {
+        personList.removeIf(person -> !(person.getAge() >= 30));
+
+        for (Person e : personList) {
+            System.out.println(e);
+        }
+    }
+
 }
